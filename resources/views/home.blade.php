@@ -8,13 +8,13 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <form action="/action_page.php">
-					  <div class="form-group">
-						<label for="message">Message:</label>
-						<textarea class="form-control" rows="4" name="nessage" required></textarea>
-					  </div>
-					  <button type="submit" class="btn btn-primary">Submit</button>
-					</form>
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    You are logged in!
                 </div>
             </div>
         </div>

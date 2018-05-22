@@ -7,8 +7,8 @@
 				@if (Session::has('message'))
 					<div class="alert alert-info">{{ Session::get('message') }}</div>
 				@endif
-				<a href="{{ URL::to('comments/create') }}">
-				   <button type="button" class="btn btn-primary">Add Comment</button>
+				<a href="{{ url('comments/create') }}">
+				   {!! Form::button('Add Comment', ['class' => 'btn btn-primary']) !!}
 				</a>
 				<table class="table">
 				  <thead class="thead-dark">
@@ -23,20 +23,19 @@
 				  <tbody>
 					@foreach($comments as $comment)
 					<tr>
-					  <td><a href="/comments/{{$comment->id}}">{{$comment->id}}</a></td>
+					  <td><a href="{{ url('comments/'. $comment->id) }}">{{$comment->id}}</a></td>
 					  <td>{{$comment->comment}}</td>
-					  <td>{{$comment->user_name}}</td>
+					  <td>{{$comment->user->name}}</td>
 					  <td>{{$comment->created_at->toFormattedDateString()}}</td>
 					  <td>
 						  <div class="btn-group" role="group" aria-label="Basic example">
-							  <a href="{{ URL::to('comments/' . $comment->id . '/edit') }}">
-							   <button type="button" class="btn btn-warning">Edit</button>
+							  <a href="{{ url('comments/'.$comment->id.'/edit')}}">
+								{!! Form::button('Edit', ['class'=>'btn btn-warning']) !!}
 							  </a>&nbsp;
-							  <form action="{{url('comments', [$comment->id])}}" method="POST">
-							   <input type="hidden" name="_method" value="DELETE">
-							   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-							   <input type="submit" class="btn btn-danger" value="Delete"/>
-							  </form>
+							  {!! Form::open(array('url' => 'comments/' . $comment->id)) !!}
+								{!! Form::hidden('_method', 'DELETE') !!}
+								{!! Form::submit('Delete', array('class' => 'btn btn-danger')) !!}
+							  {!! Form::close() !!}
 						  </div>
 						</td>
 					</tr>

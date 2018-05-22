@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use Illuminate\Http\Request;
+use Auth;
 
 class CommentController extends Controller
 {
@@ -15,7 +16,7 @@ class CommentController extends Controller
     public function index()
     {
         $comments = Comment::all();
-		return view('comments.index', compact('comments', $comments));
+		return view('comments.index', compact('comments'));
     }
 
     /**
@@ -25,7 +26,8 @@ class CommentController extends Controller
      */
     public function create()
     {
-        return view('comments.create');
+        $comment = new Comment;
+		return view('comments.create',['comment' => $comment]);
     }
 
     /**
@@ -40,8 +42,8 @@ class CommentController extends Controller
 			'comment' => 'required'
 		]);
 		
-		$comment = Comment::create(['comment' => $request->comment, 'user_name' => $request->user_name]);
-		return redirect('/comments/'.$comment->id);
+		$comment = Comment::create(['comment' => $request->comment, 'user_id' => Auth::id()]);
+		return redirect('comments');
     }
 
     /**
@@ -52,7 +54,7 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        return view('comments.show', compact('comment', $comment));
+        return view('comments.show', compact('comment'));
     }
 
     /**
@@ -63,7 +65,7 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        return view('comments.edit', compact('comment',$comment));
+        return view('comments.edit', compact('comment'));
     }
 
     /**
@@ -79,7 +81,7 @@ class CommentController extends Controller
             'comment' => 'required'
         ]);
         
-        $comment->user_name = $request->user_name;
+        $comment->user_id = Auth::id();
         $comment->comment = $request->comment;
         $comment->save();
         $request->session()->flash('message', 'Comment Edited!');
