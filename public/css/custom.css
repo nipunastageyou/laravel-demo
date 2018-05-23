@@ -1,0 +1,81 @@
+.container-custom-bg {
+  background-color: #ffffff;
+}
+
+.padding-bottom-20 {
+  padding-bottom: 20px;
+}
+
+.main-wrap {
+  margin: 50px 20px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 2px 20px 4px rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.main-wrap .comment-main-wrap {
+  padding-bottom: 10px;
+}
+
+.main-wrap .comment-main-wrap .image-wrap {
+  width: 60px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.main-wrap .comment-main-wrap .image-wrap .image {
+  background: #6900b6;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  position: relative;
+}
+
+.main-wrap .comment-main-wrap .image-wrap .image span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.main-wrap .comment-main-wrap .image-wrap .delete-btn-wrap {
+  text-align: center;
+  padding-right: 5px;
+}
+
+.main-wrap .comment-main-wrap .comment-name-rating-main-wrap {
+  width: calc(100% - 65px);
+  display: inline-block;
+  padding-top: 20px;
+  padding-left: 5px;
+}
+
+.main-wrap .comment-main-wrap .comment-name-rating-main-wrap .name-rating-wrap .name-wrap {
+  display: inline-block;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.main-wrap .comment-main-wrap .comment-name-rating-main-wrap .name-rating-wrap .rating-wrap {
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.main-wrap .comment-main-wrap .comment-name-rating-main-wrap .name-rating-wrap .rating-wrap i {
+  cursor: pointer;
+  color: #f57059;
+}
+
+.main-wrap .comment-main-wrap .comment-name-rating-main-wrap .name-rating-wrap .edit-btn-wrap {
+  display: inline-block;
+}
+
+.main-wrap .comment-main-wrap .comment-name-rating-main-wrap .comment {
+  padding-top: 10px;
+}
+
+.main-wrap .comment-main-wrap .comment-name-rating-main-wrap .comment-date {
+  font-size: 10px;
+}

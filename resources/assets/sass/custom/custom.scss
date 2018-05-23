@@ -1,0 +1,89 @@
+$white: #ffffff;
+$red: #ff0000;
+
+.container-custom-bg {
+	background-color: $white;
+}
+
+.padding-bottom-20{
+	padding-bottom: 20px;
+}
+
+.main-wrap{
+	
+	margin: 50px 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 2px 20px 4px rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+
+	
+	.comment-main-wrap{
+		padding-bottom: 10px;
+		
+		.image-wrap {
+			width: 60px;
+			display:  inline-block;
+			vertical-align: top;
+		
+			.image {
+				background: #6900b6;
+				border-radius: 50%;
+				width: 55px;
+				height: 55px;
+				position: relative;
+				
+				span {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					color: $white;
+					font-weight: bold;
+				}
+			}
+			
+			.delete-btn-wrap {
+				text-align: center;
+				padding-right: 5px;
+			}
+		}
+
+		.comment-name-rating-main-wrap {
+			width: calc(100% - 65px);
+			display: inline-block;
+			padding-top: 20px;
+			padding-left: 5px;
+			
+			.name-rating-wrap {
+
+				.name-wrap {
+					display:  inline-block;
+					font-weight: bold;
+					padding-right: 10px;
+				}
+
+				.rating-wrap {
+					display:  inline-block;
+					padding-right: 10px;
+					
+					i{
+						cursor: pointer;
+						color: #f57059;
+					}
+				}
+				.edit-btn-wrap {
+					display:  inline-block;
+				}
+			}
+			
+			.comment {
+				padding-top: 10px;
+			}
+
+			.comment-date {
+				font-size: 10px;
+			}
+		}
+	
+	}
+}
